@@ -1,9 +1,94 @@
 package com.company;
 
+import com.company.test1.Point;
+
 public class Main {
 
     public static void main(String[] args) {
+        Point p = new Point(6, 5);
+        System.out.println(p.distance());
+        System.out.println(p.distance(new Point(3,1)));
+    }
 
+    public static int sumOdd(int start, int end) {
+        if (start > end || start < 0 || end < 0) {
+            return -1;
+        }
+
+        int sum = 0;
+
+        for (int i = start; i <= end; i++) {
+            if (isOdd(i)) {
+                sum += i;
+            }
+        }
+
+        return sum;
+    }
+
+    public static boolean isOdd(int num) {
+        if (num < 0 || num % 2 == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static int getDaysInMonth(int month, int year) {
+        if ( (month < 1 || month > 12) || (year < 1 || year > 9999) ) {
+            return -1;
+        }
+
+        switch (month) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                return 31;
+            case 2:
+                if (isLeapYear(year)) {
+                    return 29;
+                } else {
+                    return 28;
+                }
+            default:
+                return 30;
+        }
+    }
+
+    public static void printNumberInWord(int num) {
+        switch (num) {
+            case 0:
+                System.out.println("ZERO");
+                break;
+            case 1:
+                System.out.println("ONE");
+                break;
+            case 2:
+                System.out.println("TWO");
+                break;
+            case 3:
+                System.out.println("THREE");
+                break;
+            case 4:
+                System.out.println("FOUR");
+                break;
+            case 5:
+                System.out.println("FIVE");
+                break;
+            case 6:
+                System.out.println("SIX");
+                break;
+            case 7:
+                System.out.println("SEVEN");
+                break;
+            case 8:
+                System.out.println("EIGHT");
+                break;
+            case 9:
+                System.out.println("NINE");
+                break;
+            default:
+                System.out.println("OTHER");
+                break;
+        }
     }
 
     public static boolean isCatPlaying(boolean summer, int temperature) {
